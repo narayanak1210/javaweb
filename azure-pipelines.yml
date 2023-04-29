@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: Windows 11 Home Single Language
+  vmImage: 'Windows 11 Home Single Language'
 
 steps:
 - task: Maven@3
