@@ -25,7 +25,7 @@ stages:
                   inputs:
                      buildType: current
                      downloadType: single
-                     artifactName: 'warfile'
+                     #artifactName: 'warfile'
                      itemPattern: '**/*.war'
                      downloadPath: '$(System.ArtifactsDirectory)/webapp/target'
                 - task: CopyFilesOverSSH@0
