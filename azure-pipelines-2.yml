@@ -20,14 +20,34 @@ stages:
          strategy:
           rolling:
              deploy:
-                steps:
-                  
-                      - task: DownloadBuildArtifacts@1
-                        inputs:
-                          buildType: 'current'
-                          downloadType: 'single'
-                          artifactName: 'warfile'
-                          itemPattern: '**/*war'
-                          downloadPath: '$(System.ArtifactsDirectory)'
+              steps:
+                - task: DownloadBuildArtifacts@1
+                  inputs:
+                     buildType: current
+                     downloadType: single
+                     artifactName: warfile
+                     itemPattern: '**/*.war'
+                     downloadPath: '$(System.ArtifactsDirectory)'
+                - task: CopyFilesOverSSH@0
+                  inputs:
+                     sshEndpoint: JAVA-VM
+                     sourceFolder: $(System.ArtifactsDirectory)
+                     contents: '**/*.war'
+                     targetFolder: /opt/tomcat/webapps
+                     readyTimeout: 20000
+
+
+                    
+                    
+                      
+                      
+                      
+                    
+  
+                    
+                        
+                                                                                
+                    
+
                       
       
