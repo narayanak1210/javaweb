@@ -23,11 +23,11 @@ stages:
               steps:
                 - task: DownloadBuildArtifacts@1
                   inputs:
-                     #buildType: current
-                     #downloadType: single
+                     buildType: specific
+                     downloadType: single
                      artifactName: warfile
                      itemPattern: '**/*.war'
-                     #downloadPath: '$(System.ArtifactsDirectory)'
+                     downloadPath: '$(System.ArtifactsDirectory)'
                      extractTars: false
                 - task: CopyFilesOverSSH@0
                   inputs:
