@@ -27,11 +27,11 @@ stages:
                      downloadType: single
                      artifactName: warfile
                      itemPattern: '**/*.war'
-                     downloadPath: '$(System.ArtifactsDirectory)'
+                     downloadPath: '$(System.ArtifactsDirectory)/webapp/target'
                 - task: CopyFilesOverSSH@0
                   inputs:
                      sshEndpoint: JAVAVM-CONNECTION
-                     sourceFolder: $(System.ArtifactsDirectory)
+                     sourceFolder: '$(System.ArtifactsDirectory)/webapp/target'
                      contents: '**/*.war'
                      targetFolder: /opt/tomcat/webapps
                      readyTimeout: 20000
