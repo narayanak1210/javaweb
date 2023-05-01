@@ -30,7 +30,7 @@ stages:
                      downloadPath: '$(System.ArtifactsDirectory)'
                 - task: CopyFilesOverSSH@0
                   inputs:
-                     sshEndpoint: JAVA-VM
+                     sshEndpoint: JAVAVM-CONNECTION
                      sourceFolder: $(System.ArtifactsDirectory)
                      contents: '**/*.war'
                      targetFolder: /opt/tomcat/webapps
