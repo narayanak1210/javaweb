@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: windows-11
 
+
 stages:
   - stage: 
     jobs:
@@ -23,12 +24,12 @@ stages:
               steps:
                 - task: DownloadBuildArtifacts@1
                   inputs:
-                     buildType: current
-                     downloadType: single
-                     artifactName: warfile
-                     #itemPattern: '**/*.war'
+                     buildType: 'current'
+                     downloadType:  'single'
+                     artifactName: 'warfile'
+                     itemPattern: '**/*.war'
                      downloadPath: '$(System.ArtifactsDirectory)'
-                     extractTars: false
+              
                 - task: CopyFilesOverSSH@0
                   inputs:
                      sshEndpoint: JAVAVM-CONNECTION
