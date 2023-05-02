@@ -27,7 +27,7 @@ stages:
                      downloadType: single
                      artifactName: warfile
                      itemPattern: '**/*.war'
-                     downloadPath: '$(System.DefaultWorkingDirectory)/**/*.war'
+                     downloadPath: '$(System.ArtifactsDirectory)'
                      extractTars: false
                 - task: CopyFilesOverSSH@0
                   inputs:
