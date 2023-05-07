@@ -29,7 +29,8 @@ stages:
                    artifactName: warfile
                    itemPattern: '**/*.war'
                    extractTars: false
-                   
+                   downloadPath: '$(System.ArtifactsDirectory)'
+
         #       -  task: CopyFilesOverSSH@0
         #      inputs:
         #           sshEndpoint: JAVAVM-CONNECTION
