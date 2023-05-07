@@ -32,7 +32,7 @@ stages:
                   publishLocation: pipeline
                - task: CopyFilesOverSSH@0
                  inputs:
-                  sshEndpoint: JIO-VM'
+                  sshEndpoint: 'JIO-VM'
                   sourceFolder: '$(System.DefaultWorkingDirectory)/**/*.war'''
                   contents: '**/*.war'
                   targetFolder: '/opt/tomcat/webapps'
