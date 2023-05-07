@@ -16,7 +16,8 @@ stages:
       -  deployment: VMDeploy
          displayName: web
          environment:
-          name: Ubuntudeploy
+          name: sudhaka-VM123
+          resourceName: sudhaka-VM123
           resourceType: VirtualMachine
          strategy:
           rolling:
