@@ -29,13 +29,14 @@ stages:
                    artifactName: warfile
                    itemPattern: '**/*.war'
                    extractTars: false
-               -  task: CopyFilesOverSSH@0
-                  inputs:
-                     sshEndpoint: JAVAVM-CONNECTION
-                     sourceFolder: '$(System.DefaultWorkingDirectory)/**/*.war'
-                     contents: '**/*.war'
-                     targetFolder: /opt/tomcat/webapps
-                     readyTimeout: 20000
+                   
+        #       -  task: CopyFilesOverSSH@0
+        #      inputs:
+        #           sshEndpoint: JAVAVM-CONNECTION
+        #             sourceFolder: '$(System.DefaultWorkingDirectory)/**/*.war'
+        #             contents: '**/*.war'
+        #             targetFolder: /opt/tomcat/webapps
+        #             readyTimeout: 20000
       
 
                     
