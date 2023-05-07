@@ -30,17 +30,17 @@ stages:
                   targetPath: '$(Pipeline.Workspace)'
                   artifact: 'warfile'
                   publishLocation: pipeline
-                
-          #     - task: DownloadBuildArtifacts@1
-          #       displayName: 'Download Build Artifacts'
-          #       inputs:
-          #         artifactName: warfile
-          #         itemPattern: '**/*.war'
-          #         extractTars: false
-          #         downloadPath: '$(System.DefaultWorkingDirectory)'
-
-        #       -  task: CopyFilesOverSSH@0
-        #      inputs:
+               - task: CopyFilesOverSSH@0
+                 inputs:
+                  sshEndpoint: JIO-VM'
+                  sourceFolder: '$(System.DefaultWorkingDirectory)/**/*.war'''
+                  contents: '**/*.war'
+                  targetFolder: '/opt/tomcat/webapps'
+                  readyTimeout: '20000'
+                  
+            #  -        
+          #            -  task: CopyFilesOverSSH@0
+        #           inputs:
         #           sshEndpoint: JAVAVM-CONNECTION
         #             sourceFolder: '$(System.DefaultWorkingDirectory)/**/*.war'
         #             contents: '**/*.war'
