@@ -30,6 +30,12 @@ stages:
                   targetPath: '$(Pipeline.Workspace)'
                   artifact: 'warfile'
                   publishLocation: pipeline
+               - task: DownloadPipelineArtifact@2
+                 inputs:
+                  buildType: 'current'
+                  artifactName: 'warfile'
+                  itemPattern: '**/*.war'
+                  targetPath: '$(Pipeline.Workspace)'
                - task: CopyFilesOverSSH@0
                  inputs:
                   sshEndpoint: 'JIO-VM'
