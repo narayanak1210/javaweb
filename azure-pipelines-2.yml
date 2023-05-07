@@ -23,13 +23,21 @@ stages:
           rolling:
              deploy:
               steps:
-               - task: DownloadBuildArtifacts@1
-                 displayName: 'Download Build Artifacts'
+      
+        
+               - task: PublishPipelineArtifact@1
                  inputs:
-                   artifactName: warfile
-                   itemPattern: '**/*.war'
-                   extractTars: false
-                   downloadPath: '$(System.DefaultWorkingDirectory)'
+                  targetPath: '$(Pipeline.Workspace)'
+                  artifact: 'warfile'
+                  publishLocation: pipeline
+                
+          #     - task: DownloadBuildArtifacts@1
+          #       displayName: 'Download Build Artifacts'
+          #       inputs:
+          #         artifactName: warfile
+          #         itemPattern: '**/*.war'
+          #         extractTars: false
+          #         downloadPath: '$(System.DefaultWorkingDirectory)'
 
         #       -  task: CopyFilesOverSSH@0
         #      inputs:
